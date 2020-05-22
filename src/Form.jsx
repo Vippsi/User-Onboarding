@@ -59,7 +59,17 @@ export default function Form(props) {
 
             </label>&nbsp;
 
+            <label>Role:&nbsp;
+                <select name='role' value={values.role} onChange={onInputChange}>
+                    <option value =''>Select a Role</option>
+                    <option value = 'Front end'>Front end</option>
+                    <option value = 'Back end'>Back end</option>
+                    <option value = 'Data Science'>Data Science</option>
+                    <option value = 'UIUX'>UI/UX</option>
+                </select>
+            </label>
 
+            <div className='error'>{errors.tos}</div>
             <label className='tos'> Terms of Service
                 <input
                 type='checkbox'
@@ -69,7 +79,7 @@ export default function Form(props) {
                 />
 
             </label>
-            <button disabled={disabled}>Submit</button>
+            <button className="submit" disabled={disabled}>Submit</button>
 
 
 

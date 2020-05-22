@@ -9,8 +9,9 @@ import styled from 'styled-components'
 
 const initialMember = [
   {
-    name: '',
-    email: '',
+    name: 'Jonathan',
+    email: 'jonathanthornton1997@gmail.com',
+    role: 'Front end',
   },
 ]
 
@@ -18,6 +19,7 @@ const initialFormValues = {
   name: '',
   email: '',
   password: '',
+  role: '',
   checkBoxes: {
     tos: false,
   }
@@ -28,6 +30,8 @@ const initialFormErrors = {
   name: '',
   email: '',
   password: '',
+  role: '',
+  tos: '',
 }
 
 const initialDisabled = true
@@ -73,6 +77,22 @@ const onCheckboxChange = evt => {
   const { name } = evt.target
   const { checked } = evt.target
 
+
+  yup
+    .reach(formSchema, name)
+    .validate(checked)
+    .then(valid => {
+      setFormErrors({
+        ...formErrors, [name]: ''
+      })
+    })
+    .catch(err => {
+      setFormErrors({
+        ...formErrors, [name]: err.errors[0]
+      })
+    })
+
+
   setFormValues({
     ...formValues,
     checkBoxes:{
@@ -111,6 +131,7 @@ const newMember = {
   name: formValues.name.trim(),
   email: formValues.email.trim(),
   password: formValues.password.trim(),
+  role: formValues.role,
   tos: formValues.tos,
 }
 
