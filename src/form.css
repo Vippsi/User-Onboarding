@@ -1,0 +1,41 @@
+.formContainer {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    width: 100%;
+    text-align: center;
+}
+
+form button {
+    border: 2px double #353b48;
+    background-color: #7f8fa6;
+    font-size: 1.2rem;
+    color:#f5f6fa;
+    padding: 2%;
+    width: 8rem;
+}
+
+.error{
+    color: red;
+}
+
+.tos{
+    margin-top: 5%;
+    margin-bottom: 5%; 
+    /* font-size: 1.2rem; */
+    
+}
